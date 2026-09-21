@@ -60,3 +60,11 @@ button{cursor:pointer}
 .hero{padding:55px 18px 65px}.hero h1{font-size:43px}.hero p{font-size:14px}.hero .mark{width:94px;height:94px;font-size:12px}.hero-visual{width:82vw;height:102vw}.display-label strong{font-size:14px}.display-label small{font-size:7px}
 .section{padding:55px 15px}.section h2{font-size:30px}.grid{gap:9px}.cardbody{padding:11px}.name{font-size:13px}.price{font-size:14px}.filters{grid-template-columns:1fr}.filters input{grid-column:auto}.home-bottom{padding:0 15px 65px}.mini-card{min-height:115px;padding:17px}
 }
+/* COLLECTOR CONSOLE — MOBILE */
+@media(max-width:900px){
+  .head{height:76px;grid-template-columns:1fr auto;padding:0 18px}.brand{width:64px;height:64px}.brand img{width:58px;height:58px}.brand:after{display:none}.right{gap:8px}
+  .nav{position:static;transform:none;height:46px;border-top:1px solid #1d1b17;overflow:auto;justify-content:flex-start;padding:0 12px;gap:4px}.nav:before,.nav:after{display:none}.nav a{padding:12px 14px;font-size:8px}
+}
+@media(max-width:430px){
+  .head{height:68px;padding:0 12px}.brand{width:55px;height:55px}.brand img{width:52px;height:52px}.icon{width:37px;height:37px}.icon svg{width:19px;height:19px}.nav{height:43px;padding:0 8px}.nav a{padding:11px 11px;font-size:8px;letter-spacing:.14em}
+}
