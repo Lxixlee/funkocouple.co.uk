@@ -32,3 +32,34 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @keyframes orbit{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes orbitReverse{to{transform:translate(-50%,-50%) rotate(-360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:.9;transform:scale(1.25)}}@keyframes ticker{to{transform:translateX(-50%)}}
 @media(max-width:800px){.hero{min-height:600px}.hero:before{width:520px;height:520px}.hero:after{width:390px;height:390px}.hero .mark{width:112px;height:112px}.collection-intro{grid-template-columns:1fr}.home-bottom-inner{padding:30px;flex-direction:column;align-items:flex-start}.mini-card{min-height:115px}}
 @media(max-width:430px){.hero{min-height:560px}.hero h1{font-size:35px}.hero p{font-size:14px}.collection-intro{gap:12px}.feature-panel{padding:25px}.feature-panel h2{font-size:28px}.mini-stack{gap:8px}.mini-card{padding:17px}.mini-card strong{font-size:14px}.home-bottom{padding:0 15px 65px}.home-bottom-inner{padding:25px}}
+
+/* DISTINCTIVE EDITORIAL HEADER + HERO */
+.top{position:relative;background:#050505;border-bottom:0;box-shadow:none}
+.head{height:76px;padding:0 34px;grid-template-columns:auto 1fr auto;position:relative;z-index:5}
+.brand{width:58px;height:58px}
+.head>.icons:first-child{display:none}
+.head:before{content:"FUNKO COUPLE / COLLECTOR'S EDITION";font-size:9px;letter-spacing:.22em;color:#70664f;font-weight:800;position:absolute;left:112px;top:50%;transform:translateY(-50%)}
+.right{gap:10px}.right .icon{border:1px solid #28241b;border-radius:50%;background:#0c0b09;transition:.25s ease}.right .icon:hover{border-color:#a98d4c;transform:translateY(-2px)}
+.nav{position:absolute;right:145px;top:19px;height:38px;z-index:8;border:1px solid #29251d;background:rgba(11,10,8,.82);border-radius:30px;padding:0 8px;gap:4px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.nav a{font-size:9px;letter-spacing:.16em;padding:11px 15px;border-radius:22px;color:#aaa18e;transition:.25s ease}
+.nav a:after{display:none}.nav a:hover{background:#d8b65d;color:#080706}
+.hero{min-height:760px;padding:50px 7vw 90px;display:grid;grid-template-columns:1fr 1fr;place-items:center;text-align:left;background:#050505;overflow:hidden}
+.hero:before{width:650px;height:650px;left:72%;top:54%;border-color:rgba(216,182,93,.12)}
+.hero:after{width:470px;height:470px;left:72%;top:54%}
+.hero>div:not(.hero-orbit){grid-column:1;grid-row:1;max-width:650px;margin-top:-20px}
+.hero .mark{margin:0 0 28px;width:110px;height:110px}
+.hero .hero-stamp{margin-bottom:22px}
+.hero h1{font-size:clamp(54px,7vw,105px);letter-spacing:-.035em;line-height:.9;max-width:700px}
+.hero p{margin:28px 0 34px;font-size:15px;color:#9b968a;max-width:540px}
+.hero .btn{margin-right:10px}
+.hero-visual{grid-column:2;grid-row:1;width:min(34vw,500px);height:min(44vw,620px);position:relative;justify-self:center;align-self:center;transform:rotate(5deg)}
+.display-case{position:absolute;inset:0;border:1px solid rgba(216,182,93,.3);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(216,182,93,.035) 45%,rgba(0,0,0,.5));box-shadow:-35px 35px 80px rgba(0,0,0,.6),inset 0 0 80px rgba(216,182,93,.04);backdrop-filter:blur(4px)}
+.display-case:before{content:"01";position:absolute;top:24px;left:25px;font-size:10px;letter-spacing:.2em;color:#81724f}
+.display-case:after{content:"THE HUNT";position:absolute;bottom:22px;left:25px;font-size:10px;letter-spacing:.3em;color:#81724f}
+.display-disc{position:absolute;width:62%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(216,182,93,.24);left:19%;top:18%;box-shadow:0 0 80px rgba(216,182,93,.08),inset 0 0 60px rgba(216,182,93,.06)}
+.display-disc:before{content:"";position:absolute;inset:18%;border-radius:50%;border:1px dashed rgba(216,182,93,.18)}
+.display-label{position:absolute;left:18%;right:18%;bottom:18%;padding:20px;border-top:1px solid rgba(216,182,93,.22);border-bottom:1px solid rgba(216,182,93,.22);text-align:center}
+.display-label strong{display:block;font-size:20px;letter-spacing:.12em}.display-label small{display:block;color:#8f8879;font-size:8px;letter-spacing:.22em;margin-top:8px}
+.hero-orbit{z-index:1}.hero-orbit span:nth-child(1){left:72%;top:18%}.hero-orbit span:nth-child(2){left:90%;top:35%}.hero-orbit span:nth-child(3){left:66%;top:74%}.hero-orbit span:nth-child(4){left:93%;top:78%}.hero-orbit span:nth-child(5){left:61%;top:45%}
+@media(max-width:900px){.head{height:70px;padding:0 16px}.head:before{display:none}.brand{width:54px;height:54px}.nav{position:relative;right:auto;top:auto;height:48px;border-radius:0;border-left:0;border-right:0;padding:0 12px;justify-content:center;background:#080807}.nav a{padding:10px 12px}.hero{grid-template-columns:1fr;min-height:780px;padding:55px 24px 80px;text-align:center}.hero>div:not(.hero-orbit){grid-column:1;grid-row:1;margin:0}.hero .mark{margin:0 auto 24px}.hero h1{font-size:clamp(48px,13vw,82px)}.hero p{margin-left:auto;margin-right:auto}.hero-visual{grid-column:1;grid-row:2;width:min(70vw,390px);height:min(90vw,500px);margin-top:45px}.hero-orbit span:nth-child(1){left:8%;top:25%}.hero-orbit span:nth-child(2){left:88%;top:20%}.hero-orbit span:nth-child(3){left:7%;top:72%}.hero-orbit span:nth-child(4){left:90%;top:70%}.hero-orbit span:nth-child(5){left:84%;top:48%}}
+@media(max-width:430px){.nav{justify-content:flex-start;overflow:auto}.nav a{font-size:8px;padding:10px 11px}.hero{min-height:720px}.hero h1{font-size:45px}.hero-visual{width:76vw;height:100vw}}
