@@ -100,3 +100,8 @@ button{cursor:pointer}
   .category-banner:hover .category-track{animation:none!important}
   .category-track{animation:none!important;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
 }
+
+.shop-categories{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:14px;border:1px solid #292929;background:#0d0d0c}
+.shop-categories a{flex:1 1 auto;text-align:center;padding:12px 14px;border:1px solid #333;background:#121210;color:#aaa;font-size:9px;font-weight:900;letter-spacing:.12em;transition:.2s}
+.shop-categories a:hover{border-color:var(--gold);color:var(--gold);background:#17140d}
+@media(max-width:700px){.shop-categories{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.shop-categories a{padding:12px 6px;font-size:8px}}
