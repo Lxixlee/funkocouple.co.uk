@@ -94,3 +94,9 @@ button{cursor:pointer}
 .bag-home{margin-left:0}
 .category-track{animation:none;transform:translateX(0)}
 .category-banner:hover .category-track{animation:categoryRun 12s cubic-bezier(.65,0,.35,1) 1 forwards}
+
+@media(max-width:700px){
+  .category-banner{touch-action:pan-y}
+  .category-banner:hover .category-track{animation:none!important}
+  .category-track{animation:none!important;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+}
