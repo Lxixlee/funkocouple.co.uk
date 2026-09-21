@@ -1,0 +1,234 @@
+{
+  "categories": [
+    {
+      "name": "Marvel",
+      "slides": [
+        {
+          "title": "MARVEL",
+          "subtitle": "HEROES • VILLAINS • UNIVERSES",
+          "cta": "SHOP MARVEL →",
+          "image": ""
+        },
+        {
+          "title": "MARVEL",
+          "subtitle": "YOUR FAVOURITE MARVEL MOMENTS",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "MARVEL",
+          "subtitle": "ASSEMBLE YOUR SHELF",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "DC",
+      "slides": [
+        {
+          "title": "DC",
+          "subtitle": "GOTHAM • HEROES • VILLAINS",
+          "cta": "SHOP DC →",
+          "image": ""
+        },
+        {
+          "title": "DC",
+          "subtitle": "LEGENDS OF THE DC UNIVERSE",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "DC",
+          "subtitle": "BUILD YOUR OWN BATCAVE",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Music",
+      "slides": [
+        {
+          "title": "MUSIC",
+          "subtitle": "ICONS • LEGENDS • ROCKSTARS",
+          "cta": "SHOP MUSIC →",
+          "image": ""
+        },
+        {
+          "title": "MUSIC",
+          "subtitle": "FROM STAGE TO SHELF",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "MUSIC",
+          "subtitle": "THE SOUNDTRACK TO YOUR COLLECTION",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Disney",
+      "slides": [
+        {
+          "title": "DISNEY",
+          "subtitle": "MAGIC • CLASSICS • FAVOURITES",
+          "cta": "SHOP DISNEY →",
+          "image": ""
+        },
+        {
+          "title": "DISNEY",
+          "subtitle": "WHERE THE MAGIC LIVES",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "DISNEY",
+          "subtitle": "EVERY SHELF NEEDS A LITTLE MAGIC",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Horror",
+      "slides": [
+        {
+          "title": "HORROR",
+          "subtitle": "NIGHTMARES • MONSTERS • ICONS",
+          "cta": "SHOP HORROR →",
+          "image": ""
+        },
+        {
+          "title": "HORROR",
+          "subtitle": "DON'T LOOK BEHIND THE SHELF",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "HORROR",
+          "subtitle": "FOR COLLECTORS WITH DARK TASTE",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "TV & Movies",
+      "slides": [
+        {
+          "title": "TV & MOVIES",
+          "subtitle": "BIG SCREENS • BIG FAVOURITES",
+          "cta": "SHOP TV & MOVIES →",
+          "image": ""
+        },
+        {
+          "title": "TV & MOVIES",
+          "subtitle": "YOUR FAVOURITE WORLDS, TO COLLECT",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "TV & MOVIES",
+          "subtitle": "TURN YOUR SHELF INTO A SCREEN",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Anime",
+      "slides": [
+        {
+          "title": "ANIME",
+          "subtitle": "ICONIC CHARACTERS • EPIC WORLDS",
+          "cta": "SHOP ANIME →",
+          "image": ""
+        },
+        {
+          "title": "ANIME",
+          "subtitle": "LEVEL UP YOUR COLLECTION",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "ANIME",
+          "subtitle": "FROM FAVOURITE SERIES TO SHELF",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Gaming",
+      "slides": [
+        {
+          "title": "GAMING",
+          "subtitle": "PLAY • COLLECT • DISPLAY",
+          "cta": "SHOP GAMING →",
+          "image": ""
+        },
+        {
+          "title": "GAMING",
+          "subtitle": "YOUR NEXT CHARACTER HAS SPAWNED",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "GAMING",
+          "subtitle": "PRESS START ON YOUR COLLECTION",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Signed",
+      "slides": [
+        {
+          "title": "SIGNED",
+          "subtitle": "AUTOGRAPHS • MEMORABILIA • GRAILS",
+          "cta": "SHOP SIGNED →",
+          "image": ""
+        },
+        {
+          "title": "SIGNED",
+          "subtitle": "THE PIECES THAT FEEL PERSONAL",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "SIGNED",
+          "subtitle": "MAKE YOUR DISPLAY ONE TO REMEMBER",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "slides": [
+        {
+          "title": "OTHER",
+          "subtitle": "ODDITIES • FAVOURITES • SURPRISES",
+          "cta": "SHOP OTHER →",
+          "image": ""
+        },
+        {
+          "title": "OTHER",
+          "subtitle": "THE UNEXPECTED SIDE OF COLLECTING",
+          "cta": "EXPLORE THE COLLECTION →",
+          "image": ""
+        },
+        {
+          "title": "OTHER",
+          "subtitle": "YOU NEVER KNOW WHAT YOU'LL FIND",
+          "cta": "FIND YOUR NEXT POP →",
+          "image": ""
+        }
+      ]
+    }
+  ]
+}
