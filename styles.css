@@ -86,3 +86,11 @@ button{cursor:pointer}
 @media(max-width:700px){.home-head{padding:0 12px;gap:8px}.home-logo{width:59px;height:59px}.social{width:36px;height:36px}.menu-toggle{width:37px}.bag-home{width:40px}.home-search-wrap{padding:0 8px 9px}.category-banner{height:210px}.category-slide{padding:25px 24px}.category-slide strong{font-size:48px}.category-slide small{font-size:8px;max-width:220px;line-height:1.5}.category-slide:after{width:220px;height:220px;right:-55px}.trending-section{padding:55px 15px}.trending-section .section-head h2{font-size:34px}.contact-banner{margin:0 15px 55px;padding:30px 22px;display:block}.contact-banner h2{font-size:28px}.contact-banner p{line-height:1.6;margin-bottom:24px}.contact-cta{display:inline-block}.home-search button{padding:0 12px;font-size:8px}}
 
 .menu-drawer{position:fixed;z-index:100;top:0;left:0;width:min(360px,88vw);height:100vh;background:#0b0b0a;border-right:1px solid #3a3325;transform:translateX(-105%);transition:transform .35s cubic-bezier(.77,0,.18,1);padding:88px 34px 30px;box-shadow:25px 0 70px rgba(0,0,0,.55)}.menu-drawer.open{transform:translateX(0)}.menu-drawer:before{content:"";position:absolute;right:-1px;top:0;width:2px;height:100%;background:linear-gradient(180deg,transparent,var(--gold),transparent);opacity:.7}.menu-drawer a{display:block;padding:16px 0;border-bottom:1px solid #211f1b;color:#e9e5dc;font-size:14px;font-weight:800;letter-spacing:.16em}.menu-drawer a:hover{color:var(--gold)}.drawer-kicker{color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.25em;margin-bottom:24px}.drawer-line{height:25px}.menu-close{position:absolute;right:22px;top:20px;width:42px;height:42px;background:transparent;border:1px solid #35322b;color:#fff;font-size:27px;line-height:1}.menu-overlay{position:fixed;z-index:90;inset:0;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .3s}.menu-overlay.open{opacity:1;pointer-events:auto}
+
+/* HEADER POSITION + HOVER-ONLY CATEGORY MOTION */
+.home-head{display:flex}
+.home-spacer{flex:1}
+.social-links{margin-left:0}
+.bag-home{margin-left:0}
+.category-track{animation:none;transform:translateX(0)}
+.category-banner:hover .category-track{animation:categoryRun 12s cubic-bezier(.65,0,.35,1) 1 forwards}
