@@ -441,3 +441,39 @@ a{color:inherit}
   78%,94%{width:700px}
   100%{width:0}
 }
+
+
+/* FINAL TIKTOK + SIGNATURE FIX */
+.fc-tiktok-logo-image{
+  mix-blend-mode:screen!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+.fc-tiktok-logo-wrap{
+  background:transparent!important;
+  box-shadow:none!important;
+  animation:fcCleanTikTokIn 2.8s cubic-bezier(.2,.8,.2,1) infinite!important;
+}
+.signature-text{
+  fill:#e0bb68!important;
+  stroke:#e0bb68!important;
+  stroke-width:1.8!important;
+  clip-path:inset(0 100% 0 0)!important;
+  animation:fcSignatureWriteLeft 5.8s cubic-bezier(.55,.05,.25,1) infinite!important;
+}
+@keyframes fcSignatureWriteLeft{
+  0%,8%{clip-path:inset(0 100% 0 0)!important;opacity:1}
+  68%{clip-path:inset(0 0 0 0)!important;opacity:1}
+  78%,94%{clip-path:inset(0 0 0 0)!important;opacity:1}
+  100%{clip-path:inset(0 100% 0 0)!important;opacity:0}
+}
+.signature-underline{
+  animation:fcUnderlineAfterWriting 5.8s ease-in-out infinite!important;
+}
+@keyframes fcUnderlineAfterWriting{
+  0%,70%{transform:scaleX(0)}
+  82%,94%{transform:scaleX(1)}
+  100%{transform:scaleX(0)}
+}
