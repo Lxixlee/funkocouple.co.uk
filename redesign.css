@@ -268,3 +268,72 @@ a{color:inherit}
 @keyframes fcFloat{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-14px) rotate(2deg)}}@keyframes fcOrbit{to{transform:rotate(360deg)}}@keyframes fcDrift{to{transform:translate3d(90px,50px,0)}}@keyframes fcScan{to{transform:translateX(100%)}}@keyframes fcPulse{0%,100%{transform:scale(.96);opacity:.55}50%{transform:scale(1.04);opacity:1}}@keyframes fcBlink{50%{opacity:.2}}@keyframes fcSeal{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(2deg) scale(1.05)}}@keyframes fcSpark{to{transform:translateX(180px)}}
 @media(max-width:700px){.fc-hero-carousel{height:500px}.fc-promo-slide{display:block;padding:38px 18px 55px;text-align:left}.fc-promo-copy{max-width:none}.fc-promo-kicker{font-size:7px}.fc-promo-copy h1{font-size:clamp(48px,15vw,64px)}.fc-promo-copy p{font-size:13px;line-height:1.55}.fc-promo-copy .btn{width:100%;text-align:center}.fc-promo-visual{height:210px;margin-top:5px}.fc-pop-box{width:155px;height:190px;padding:17px}.fc-pop-box b{font-size:45px}.fc-pop-orbit{width:220px;height:220px}.fc-orbit-b{width:270px;height:110px}.fc-live-ring{width:220px;height:220px}.fc-live-badge{width:115px;height:115px}.fc-live-badge b{font-size:20px}.fc-live-pop{right:2%;bottom:0}.fc-signed-seal{width:170px;height:170px;font-size:24px}.fc-signed-rays{width:270px;height:270px}.fc-promo-normal .fc-shop-hero-copy{max-width:none}.fc-promo-normal .fc-shop-hero-visual{height:200px;margin-top:10px}.fc-promo-normal .fc-shelf-card{width:165px;height:195px;padding:18px}.fc-promo-normal .fc-shelf-card strong{font-size:24px}.fc-promo-normal .fc-floating-card{display:none}.fc-promo-normal .fc-shop-hero-copy h1{font-size:clamp(42px,13vw,58px)}.fc-carousel-dots{bottom:13px}}
 @media(prefers-reduced-motion:reduce){.fc-promo-slide,.fc-pop-box,.fc-pop-orbit,.fc-live-ring,.fc-live-badge,.fc-live-pop,.fc-signed-seal,.fc-signed-rays,.fc-spark-field:before,.fc-spark-field:after,.fc-promo-new:before,.fc-promo-new:after,.fc-promo-live:before{animation:none!important;transition:none!important}}
+
+/* FINAL MOBILE HOMEPAGE CLEANUP */
+@media (max-width:700px){
+  html,body{overflow-x:hidden!important;width:100%!important}
+  .home-header{position:relative!important;width:100%!important}
+  .home-head{display:flex!important;align-items:center!important;width:100%!important;height:64px!important;padding:0 9px!important;box-sizing:border-box!important;gap:5px!important}
+  .menu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 38px!important;width:38px!important;height:38px!important}
+  .home-logo{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 54px!important;width:54px!important;height:54px!important}
+  .home-logo img{width:54px!important;height:54px!important;object-fit:contain!important}
+  .home-spacer{display:block!important;flex:1 1 auto!important;min-width:0!important}
+  .social-links{display:flex!important;flex:0 0 auto!important;gap:4px!important}
+  .social{width:31px!important;height:31px!important;flex:0 0 31px!important}
+  .bag-home{display:grid!important;flex:0 0 36px!important;width:36px!important;height:36px!important;margin-left:1px!important}
+  .home-search-wrap{width:100%!important;box-sizing:border-box!important;padding:8px 9px 10px!important}
+  .home-search{width:100%!important;height:42px!important;box-sizing:border-box!important}
+  .home-search input{min-width:0!important;font-size:13px!important}
+
+  .fc-hero-carousel{height:440px!important;width:100%!important;overflow:hidden!important}
+  .fc-carousel-track{height:100%!important;width:100%!important}
+  .fc-promo-slide{box-sizing:border-box!important;width:100%!important;height:100%!important;min-width:0!important;padding:30px 16px 46px!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:stretch!important;gap:0!important;text-align:left!important;overflow:hidden!important}
+  .fc-promo-copy{width:100%!important;max-width:none!important;min-width:0!important;flex:0 0 auto!important}
+  .fc-promo-kicker{font-size:7px!important;line-height:1.3!important;margin-bottom:10px!important;letter-spacing:.16em!important}
+  .fc-promo-copy h1{font-size:clamp(42px,13vw,58px)!important;line-height:.86!important;margin:0 0 13px!important;letter-spacing:-.06em!important}
+  .fc-promo-copy p{font-size:12px!important;line-height:1.45!important;max-width:330px!important;margin:0 0 15px!important}
+  .fc-promo-copy .btn{display:block!important;width:100%!important;box-sizing:border-box!important;text-align:center!important;padding:12px 8px!important;font-size:8px!important}
+  .fc-promo-visual{position:relative!important;width:100%!important;height:145px!important;min-height:145px!important;margin:3px 0 0!important;display:grid!important;place-items:center!important;flex:0 0 145px!important}
+  .fc-pop-box{width:105px!important;height:130px!important;padding:13px!important;box-sizing:border-box!important}
+  .fc-pop-box b{font-size:32px!important}
+  .fc-pop-box span,.fc-pop-box small{font-size:6px!important}
+  .fc-pop-orbit{width:145px!important;height:145px!important}
+  .fc-orbit-b{width:180px!important;height:75px!important}
+  .fc-live-ring{width:145px!important;height:145px!important}
+  .fc-live-badge{width:88px!important;height:88px!important}
+  .fc-live-badge b{font-size:16px!important}
+  .fc-live-badge span{font-size:6px!important}
+  .fc-live-badge i{width:7px!important;height:7px!important}
+  .fc-live-pop{right:3%!important;bottom:0!important;padding:9px 12px!important;font-size:16px!important}
+  .fc-live-pop small{font-size:6px!important}
+  .fc-signed-seal{width:125px!important;height:125px!important;font-size:18px!important}
+  .fc-signed-seal small{font-size:6px!important;margin-top:7px!important}
+  .fc-signed-rays{width:190px!important;height:190px!important}
+  .fc-promo-normal .fc-shop-hero-copy{width:100%!important;max-width:none!important}
+  .fc-promo-normal .fc-shop-hero-copy h1{font-size:clamp(40px,12vw,54px)!important}
+  .fc-promo-normal .fc-shop-hero-copy p{max-width:330px!important}
+  .fc-promo-normal .fc-shop-hero-visual{width:100%!important;height:135px!important;min-height:135px!important;margin:2px 0 0!important}
+  .fc-promo-normal .fc-shelf-card{width:115px!important;height:135px!important;padding:13px!important}
+  .fc-promo-normal .fc-shelf-card strong{font-size:19px!important}
+  .fc-promo-normal .fc-shelf-card span,.fc-promo-normal .fc-shelf-card small{font-size:5px!important}
+  .fc-promo-normal .fc-floating-card{display:none!important}
+  .fc-carousel-dots{bottom:10px!important;gap:6px!important}
+
+  .fc-shop-strip{width:100%!important;grid-template-columns:1fr 1fr!important}
+  .category-zone{width:100%!important;padding:20px 10px 5px!important;box-sizing:border-box!important}
+  .category-banner,.category-banner:nth-of-type(2n),.category-banner:nth-of-type(3n){width:100%!important;height:190px!important;margin:0 0 9px!important}
+  .category-slide{padding:18px!important}
+  .category-slide strong{font-size:29px!important;line-height:.95!important}
+  .trending-section.fc-products-home{width:100%!important;padding:32px 10px!important;box-sizing:border-box!important}
+  .fc-products-home .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .fc-shop-callout,.fc-signed-row{margin-left:10px!important;margin-right:10px!important;box-sizing:border-box!important}
+}
+@media (max-width:380px){
+  .home-head{padding:0 7px!important}
+  .home-logo{flex-basis:50px!important;width:50px!important;height:50px!important}.home-logo img{width:50px!important;height:50px!important}
+  .social{width:28px!important;height:28px!important;flex-basis:28px!important}.bag-home{width:33px!important;height:33px!important;flex-basis:33px!important}
+  .fc-hero-carousel{height:425px!important}
+  .fc-promo-slide{padding-left:13px!important;padding-right:13px!important}
+  .fc-promo-copy h1{font-size:40px!important}
+  .fc-promo-copy p{font-size:11px!important}
+}
