@@ -33,6 +33,7 @@ body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;paddin
 </section>
 
 <section id="editor" class="admin-card hidden">
+<div class="admin-card" style="margin:0 0 22px;background:#0d0d0c"><h2>Site Logo</h2><p class="admin-note">Change the logo used across the website. Upload a new logo and then click SAVE LOGO.</p><div class="artwork-preview" style="max-width:420px;height:140px" id="logoPreview"></div><div class="upload"><input id="logoUpload" type="file" accept="image/*,.svg"><button type="button" class="btn2" id="uploadLogo">UPLOAD LOGO</button><button type="button" class="btn2 gold" id="saveLogo">SAVE LOGO</button></div><div id="logoStatus" class="status" style="margin-top:10px"></div></div>
 <div class="actions" style="justify-content:space-between"><div><h2 style="margin-bottom:4px">Category Images</h2><p class="admin-note">Upload the main image used on each homepage category card. Use a clear, high-resolution image — around 1200 × 800px works well. The image is stored separately, so replacing it will not make it blurry.</p></div></div>
 <div id="categoryArtwork" class="category-artwork-grid"></div>
 
@@ -50,6 +51,7 @@ async function api(path,opts={}){const r=await fetch(API+path,{credentials:'same
 function loginStatus(t,ok=false){$('#loginStatus').textContent=t;$('#loginStatus').className='status '+(ok?'saved':'error')}
 async function loadConfig(){const d=await api('/config');cfg=d.config;render();$('#loginCard').classList.add('hidden');$('#editor').classList.remove('hidden');$('#logout').classList.remove('hidden')}
 function render(){
+const lp=$('#logoPreview');if(lp)lp.innerHTML=cfg.logo?'<img src="'+esc(cfg.logo)+'" alt="Current site logo">':'CURRENT LOGO: logo.svg';
 const artwork=$('#categoryArtwork');
 if(artwork) artwork.innerHTML=(cfg.categories||[]).map((c,ci)=>'<div class="artwork-card"><h3>'+esc(c.name)+'</h3><div class="artwork-preview">'+(c.image?'<img src="'+esc(c.image)+'" alt="'+esc(c.name)+' category image">':'NO CATEGORY IMAGE — UPLOAD ONE')+'</div><div class="artwork-meta">'+(c.image?'Current homepage image is set.':'No homepage image has been uploaded yet.')+'</div><div class="upload"><input type="file" accept="image/*" data-category-upload="'+ci+'"><button type="button" class="btn2" data-category-upload-btn="'+ci+'">UPLOAD IMAGE</button></div></div>').join('');
 const root=$('#categories');
@@ -68,6 +70,9 @@ $('#login').onclick=async()=>{const password=$('#password').value;if(!password){
 $('#password').addEventListener('keydown',e=>{if(e.key==='Enter')$('#login').click()});
 $('#logout').onclick=async()=>{await api('/logout',{method:'POST'});location.reload()};
 $('#save').onclick=save;$('#save2').onclick=save;
+let pendingLogo='';
+$('#uploadLogo').onclick=async()=>{const f=$('#logoUpload').files[0];if(!f){$('#logoStatus').textContent='Choose a logo first.';$('#logoStatus').className='status error';return}try{const d=await uploadFile(f);pendingLogo=d.image;$('#logoPreview').innerHTML='<img src="'+esc(pendingLogo)+'" alt="New site logo">';$('#logoStatus').textContent='Uploaded. Click SAVE LOGO to make it live.';$('#logoStatus').className='status saved'}catch(e){$('#logoStatus').textContent=e.message;$('#logoStatus').className='status error'}};
+$('#saveLogo').onclick=async()=>{if(!pendingLogo){$('#logoStatus').textContent='Upload a new logo first.';$('#logoStatus').className='status error';return}cfg.logo=pendingLogo;try{await api('/config',{method:'PUT',body:JSON.stringify(cfg)});pendingLogo='';$('#logoStatus').textContent='Logo saved. Refresh the site after GitHub Pages deploys.';$('#logoStatus').className='status saved';render()}catch(e){$('#logoStatus').textContent=e.message;$('#logoStatus').className='status error'}};
 document.addEventListener('change',async e=>{
 if(e.target.matches('[data-category-upload]')){
   const ci=Number(e.target.dataset.categoryUpload),file=e.target.files[0];if(!file)return;
