@@ -717,7 +717,7 @@ a{color:inherit}
   position:absolute!important;
   inset:0!important;
   z-index:0!important;
-  background-image:url("category-atlas.webp")!important;
+  background-image:url("category-sprite.webp")!important;
   background-repeat:no-repeat!important;
   background-size:500% 200%!important;
   transform:scale(1.01);
