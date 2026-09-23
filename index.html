@@ -37,17 +37,49 @@
 <a href="bag.html">BASKET</a>
 </div><div class="menu-overlay" id="menuOverlay" onclick="closeFcMenu(event)"></div>
 <main>
-<section class="fc-shop-hero">
-  <div class="fc-shop-hero-copy">
-    <div class="fc-kicker">FUNKO COUPLE · UK</div>
-    <h1>Find your next <span>Pop.</span></h1>
-    <p>Shop Funko Pops across Marvel, Disney, Horror, TV & Movies, Anime, Gaming, Music and more.</p>
-    <div class="fc-hero-actions"><a class="btn" href="shop.html">SHOP ALL FUNKO POPS</a><a class="fc-text-link" href="#categoryZone">BROWSE CATEGORIES ↓</a></div>
+<section class="fc-hero-carousel" aria-label="Featured promotions">
+  <div class="fc-carousel-track">
+    <article class="fc-promo-slide fc-promo-new is-active">
+      <div class="fc-promo-particles"></div>
+      <div class="fc-promo-copy">
+        <span class="fc-promo-kicker">FUNKO COUPLE · NEW STOCK</span>
+        <h1>JUST<br><strong>DROPPED.</strong></h1>
+        <p>Fresh Funko Pops have landed in the shop.</p>
+        <a class="btn" href="shop.html">SHOP NEW ARRIVALS →</a>
+      </div>
+      <div class="fc-promo-visual"><div class="fc-pop-orbit fc-orbit-a"></div><div class="fc-pop-orbit fc-orbit-b"></div><div class="fc-pop-box"><span>NEW</span><b>POP!</b><small>FRESH STOCK</small></div></div>
+    </article>
+    <article class="fc-promo-slide fc-promo-live">
+      <div class="fc-live-lines"></div>
+      <div class="fc-promo-copy">
+        <span class="fc-promo-kicker">LIVE · POPANDLOCK31</span>
+        <h1>£1<br><strong>STARTS.</strong></h1>
+        <p>Catch Funko Couple live on TikTok and watch the auctions happen.</p>
+        <a class="btn" href="https://www.tiktok.com/@funkocouple8294" target="_blank" rel="noopener">WATCH TIKTOK LIVE →</a>
+      </div>
+      <div class="fc-promo-visual"><div class="fc-live-ring"></div><div class="fc-live-badge"><i></i><b>LIVE</b><span>TIKTOK</span></div><div class="fc-live-pop">POP<br><small>AUCTION</small></div></div>
+    </article>
+    <article class="fc-promo-slide fc-promo-signed">
+      <div class="fc-spark-field"></div>
+      <div class="fc-promo-copy">
+        <span class="fc-promo-kicker">SIGNED & SPECIAL PIECES</span>
+        <h1>MAKE YOUR<br><strong>SHELF SPECIAL.</strong></h1>
+        <p>Signed Pops and standout collector pieces.</p>
+        <a class="btn" href="shop.html?category=Signed">SHOP SIGNED →</a>
+      </div>
+      <div class="fc-promo-visual"><div class="fc-signed-seal">SIGNED<small>COLLECTOR<br>PIECE</small></div><div class="fc-signed-rays"></div></div>
+    </article>
+    <article class="fc-promo-slide fc-promo-normal">
+      <div class="fc-shop-hero-copy">
+        <div class="fc-kicker">FUNKO COUPLE · UK</div>
+        <h1>Find your next <span>Pop.</span></h1>
+        <p>Shop Funko Pops across Marvel, Disney, Horror, TV & Movies, Anime, Gaming, Music and more.</p>
+        <div class="fc-hero-actions"><a class="btn" href="shop.html">SHOP ALL FUNKO POPS</a><a class="fc-text-link" href="#categoryZone">BROWSE CATEGORIES ↓</a></div>
+      </div>
+      <div class="fc-shop-hero-visual"><div class="fc-shelf-card"><span>NEW STOCK</span><strong>COLLECT<br>WHAT YOU<br>LOVE.</strong><small>FUNKO COUPLE / SHOP</small></div><div class="fc-floating-card fc-fc1">POP</div><div class="fc-floating-card fc-fc2">✦</div></div>
+    </article>
   </div>
-  <div class="fc-shop-hero-visual">
-    <div class="fc-shelf-card"><span>NEW STOCK</span><strong>COLLECT<br>WHAT YOU<br>LOVE.</strong><small>FUNKO COUPLE / SHOP</small></div>
-    <div class="fc-floating-card fc-fc1">POP</div><div class="fc-floating-card fc-fc2">✦</div>
-  </div>
+  <div class="fc-carousel-dots" aria-label="Banner slides"><button class="active" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button><button aria-label="Slide 4"></button></div>
 </section>
 
 <section class="fc-shop-strip"><div><b>✓</b> NEW STOCK</div><div><b>✓</b> COLLECTOR FOCUSED</div><div><b>✓</b> SECURE CHECKOUT</div><div><b>✓</b> UK BASED</div></section>
@@ -73,4 +105,22 @@
 <script src="app.js"></script><script>
 function openFcMenu(e){if(e)e.preventDefault();document.getElementById('menuDrawer').classList.add('open');document.getElementById('menuOverlay').classList.add('open');document.body.classList.add('menu-open')}
 function closeFcMenu(e){if(e)e.preventDefault();document.getElementById('menuDrawer').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');document.body.classList.remove('menu-open')}
+</script><script>
+(function(){
+  const carousel=document.querySelector('.fc-hero-carousel');
+  if(!carousel)return;
+  const slides=[...carousel.querySelectorAll('.fc-promo-slide')];
+  const dots=[...carousel.querySelectorAll('.fc-carousel-dots button')];
+  let index=0,timer;
+  function show(n){
+    index=n%slides.length;
+    slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===index));
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
+  }
+  function start(){clearInterval(timer);timer=setInterval(()=>show(index+1),6500)}
+  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start()}));
+  carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+  carousel.addEventListener('mouseleave',start);
+  show(0);start();
+})();
 </script></body></html>
