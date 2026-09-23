@@ -391,3 +391,53 @@ a{color:inherit}
 @media(max-width:700px){
  .fc-tiktok-logo-wrap{width:170px!important;height:170px!important;top:44%!important}.fc-tiktok-logo-image{width:170px!important;height:170px!important}
 }
+
+
+/* CLEAN TIKTOK LOGO + TRUE LEFT-TO-RIGHT SIGNATURE REVEAL */
+.fc-tiktok-logo-wrap{
+  animation:fcCleanTikTokIn 2.8s cubic-bezier(.2,.8,.2,1) infinite!important;
+  filter:none!important;
+}
+.fc-tiktok-logo-image{
+  animation:none!important;
+  filter:none!important;
+  transform:none!important;
+  display:block!important;
+}
+@keyframes fcCleanTikTokIn{
+  0%,12%{opacity:0;transform:translate(-50%,-50%) scale(.78)}
+  26%{opacity:1;transform:translate(-50%,-50%) scale(1.03)}
+  38%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+.signature-text{
+  stroke-dasharray:none!important;
+  stroke-dashoffset:0!important;
+  animation:fcSignatureInk 5.8s ease-in-out infinite!important;
+  clip-path:url(#signatureReveal);
+}
+.signature-reveal-rect{
+  animation:fcSignatureReveal 5.8s cubic-bezier(.45,0,.25,1) infinite!important;
+}
+@keyframes fcSignatureReveal{
+  0%,8%{width:0}
+  70%{width:700px}
+  78%,94%{width:700px}
+  100%{width:0}
+}
+@keyframes fcSignatureInk{
+  0%,8%{fill:transparent;opacity:1}
+  68%{fill:transparent;opacity:1}
+  78%,94%{fill:#e0bb68;opacity:1}
+  100%{fill:transparent;opacity:0}
+}
+@media(max-width:700px){
+  .fc-tiktok-logo-wrap{width:170px!important;height:170px!important;top:44%!important}
+  .fc-tiktok-logo-image{width:170px!important;height:170px!important}
+  .signature-reveal-rect{animation-name:fcSignatureRevealMobile!important}
+}
+@keyframes fcSignatureRevealMobile{
+  0%,8%{width:0}
+  70%{width:700px}
+  78%,94%{width:700px}
+  100%{width:0}
+}
