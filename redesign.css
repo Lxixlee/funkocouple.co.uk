@@ -69,3 +69,42 @@ a{color:inherit}
 
 /* HAMBURGER CATEGORY NAV */
 .drawer-category-title{margin:24px 0 10px;color:#777064;font-size:8px;font-weight:900;letter-spacing:.2em}.drawer-categories{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.drawer-categories a{padding:11px 0;font-size:10px}.menu-drawer{overflow-y:auto}.menu-open{overflow:hidden}@media(max-width:430px){.drawer-categories a{font-size:9px}}
+
+
+/* SHOP HEADER + CATEGORY NAV FIX */
+.top:not(.home-header) .head{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:82px;max-width:1440px;padding:0 28px}
+.top:not(.home-header) .head>.brand{grid-column:2;justify-self:center;width:190px}
+.top:not(.home-header) .head>.icons:first-child{display:none}
+.top:not(.home-header) .head>.icons.right{grid-column:3;justify-self:end;display:flex!important;align-items:center;gap:10px}
+.top:not(.home-header) .head>.icons.right .icon{display:grid!important;position:relative;width:44px;height:44px;flex:0 0 44px}
+.top:not(.home-header) .head>.icons.right .icon svg{width:23px;height:23px;display:block}
+.top:not(.home-header) .head>.icons.right .count{display:none;position:absolute;right:-5px;top:-5px;min-width:18px;height:18px;align-items:center;justify-content:center}
+.top:not(.home-header) .nav{position:static;transform:none;height:48px;display:flex;justify-content:center;align-items:center;border-top:1px solid #24221e;gap:4px;overflow:visible}
+.top:not(.home-header) .nav a{padding:12px 18px;font-size:9px}
+.top:not(.home-header) .nav a:after{display:none}
+.top:not(.home-header) .nav:before,.top:not(.home-header) .nav:after{display:none}
+
+.shop-categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:0;margin:0 0 28px;border:0;background:transparent;overflow:visible}
+.shop-categories a{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 8px;background:#fff;color:#28251f;border:1px solid #d8d1c5;font-size:9px;font-weight:900;letter-spacing:.12em;white-space:nowrap;transition:.2s ease}
+.shop-categories a:hover,.shop-categories a:focus{background:#111;color:#fff;border-color:#111;transform:translateY(-2px)}
+.shop-categories a.active{background:#b58a3a;color:#fff;border-color:#b58a3a}
+@media(max-width:900px){
+  .top:not(.home-header) .head{height:72px;padding:0 16px}
+  .top:not(.home-header) .head>.brand{width:150px}
+  .top:not(.home-header) .head>.brand img{width:55px;height:55px}
+  .top:not(.home-header) .head>.icons.right .icon{width:40px;height:40px;flex-basis:40px}
+  .top:not(.home-header) .nav{height:48px;justify-content:center;gap:0}
+  .top:not(.home-header) .nav a{padding:12px 13px;font-size:8px}
+  .shop-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+}
+@media(max-width:430px){
+  .top:not(.home-header) .head{height:66px;padding:0 12px}
+  .top:not(.home-header) .head>.brand{width:110px}
+  .top:not(.home-header) .head>.brand img{width:50px;height:50px}
+  .top:not(.home-header) .head>.icons.right{gap:6px}
+  .top:not(.home-header) .head>.icons.right .icon{width:37px;height:37px;flex-basis:37px}
+  .top:not(.home-header) .nav{height:43px}
+  .top:not(.home-header) .nav a{padding:11px 9px;font-size:7px;letter-spacing:.12em}
+  .shop-categories{grid-template-columns:repeat(2,1fr);gap:7px}
+  .shop-categories a{min-height:44px;font-size:8px}
+}
