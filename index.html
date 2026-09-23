@@ -39,36 +39,36 @@
 <main>
 <section class="fc-hero-carousel" aria-label="Featured promotions">
   <div class="fc-carousel-track">
-    <article class="fc-promo-slide fc-promo-new is-active">
+    <a class="fc-promo-slide fc-promo-new is-active" href="shop.html" aria-label="Shop new Funko Pops">
       <div class="fc-promo-particles"></div>
       <div class="fc-promo-copy">
         <span class="fc-promo-kicker">FUNKO COUPLE · NEW STOCK</span>
         <h1>JUST<br><strong>DROPPED.</strong></h1>
         <p>Fresh Funko Pops have landed in the shop.</p>
-        <a class="btn" href="shop.html">SHOP NEW ARRIVALS →</a>
+        
       </div>
       <div class="fc-promo-visual"><div class="fc-pop-orbit fc-orbit-a"></div><div class="fc-pop-orbit fc-orbit-b"></div><div class="fc-pop-box"><span>NEW</span><b>POP!</b><small>FRESH STOCK</small></div></div>
-    </article>
-    <article class="fc-promo-slide fc-promo-live">
+    </a>
+    <a class="fc-promo-slide fc-promo-live" href="https://www.tiktok.com/@funkocouple8294" target="_blank" rel="noopener" aria-label="Visit Funko Couple on TikTok Live">
       <div class="fc-live-lines"></div>
       <div class="fc-promo-copy">
         <span class="fc-promo-kicker">FUNKO COUPLE · TIKTOK LIVE</span>
         <h1>VISIT US<br><strong>ON TIKTOK.</strong></h1>
         <p>Join us live on TikTok for Funko Pops, live selling, new stock and plenty of collector chat.</p>
-        <a class="btn" href="https://www.tiktok.com/@funkocouple8294" target="_blank" rel="noopener">WATCH TIKTOK LIVE →</a>
+        
       </div>
       <div class="fc-promo-visual"><div class="fc-live-ring"></div><div class="fc-live-badge"><i></i><b>LIVE</b><span>TIKTOK</span></div><div class="fc-live-pop">POP<br><small>AUCTION</small></div></div>
-    </article>
-    <article class="fc-promo-slide fc-promo-signed">
+    </a>
+    <a class="fc-promo-slide fc-promo-signed" href="shop.html?category=Signed" aria-label="Shop signed Funko Pops">
       <div class="fc-spark-field"></div>
       <div class="fc-promo-copy">
         <span class="fc-promo-kicker">SIGNED & SPECIAL PIECES</span>
         <h1>MAKE YOUR<br><strong>SHELF SPECIAL.</strong></h1>
         <p>Signed Pops and standout collector pieces.</p>
-        <a class="btn" href="shop.html?category=Signed">SHOP SIGNED →</a>
+        
       </div>
       <div class="fc-promo-visual"><div class="fc-signed-seal">SIGNED<small>COLLECTOR<br>PIECE</small></div><div class="fc-signed-rays"></div></div>
-    </article>
+    </a>
     <article class="fc-promo-slide fc-promo-normal">
       <div class="fc-shop-hero-copy">
         <div class="fc-kicker">FUNKO COUPLE · UK</div>
@@ -103,24 +103,18 @@
 </main>
 <footer class="footer"><div class="footer-links"><a href="shop.html">SHOP</a><a href="about.html">ABOUT US</a><a href="contact.html">CONTACT</a><a href="wishlist.html">WISHLIST</a><a href="bag.html">BAG</a></div>© Funko Couple</footer>
 <script src="app.js"></script><script>
+(function(){
+  const carousel=document.querySelector('.fc-hero-carousel'); if(!carousel)return;
+  const slides=[...carousel.querySelectorAll('.fc-promo-slide')],dots=[...carousel.querySelectorAll('.fc-carousel-dots button')];
+  let index=0,timer,startX=0,startY=0;
+  function show(n){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('is-active',i===index));dots.forEach((d,i)=>d.classList.toggle('active',i===index))}
+  function restart(){clearInterval(timer);timer=setInterval(()=>show(index+1),6500)}
+  dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();show(i);restart()}));
+  carousel.addEventListener('mouseenter',()=>clearInterval(timer)); carousel.addEventListener('mouseleave',restart);
+  carousel.addEventListener('touchstart',e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;clearInterval(timer)},{passive:true});
+  carousel.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))show(index+(dx<0?1:-1));restart()},{passive:true});
+  show(0);restart();
+})();
 function openFcMenu(e){if(e)e.preventDefault();document.getElementById('menuDrawer').classList.add('open');document.getElementById('menuOverlay').classList.add('open');document.body.classList.add('menu-open')}
 function closeFcMenu(e){if(e)e.preventDefault();document.getElementById('menuDrawer').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');document.body.classList.remove('menu-open')}
-</script><script>
-(function(){
-  const carousel=document.querySelector('.fc-hero-carousel');
-  if(!carousel)return;
-  const slides=[...carousel.querySelectorAll('.fc-promo-slide')];
-  const dots=[...carousel.querySelectorAll('.fc-carousel-dots button')];
-  let index=0,timer;
-  function show(n){
-    index=n%slides.length;
-    slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===index));
-    dots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
-  }
-  function start(){clearInterval(timer);timer=setInterval(()=>show(index+1),6500)}
-  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start()}));
-  carousel.addEventListener('mouseenter',()=>clearInterval(timer));
-  carousel.addEventListener('mouseleave',start);
-  show(0);start();
-})();
 </script></body></html>
