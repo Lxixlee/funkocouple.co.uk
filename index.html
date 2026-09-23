@@ -47,7 +47,7 @@
         <p>Fresh Funko Pops have landed in the shop.</p>
         
       </div>
-      <div class="fc-promo-visual"><div class="fc-pop-orbit fc-orbit-a"></div><div class="fc-pop-orbit fc-orbit-b"></div><div class="fc-pop-box"><span>NEW</span><b>POP!</b><small>FRESH STOCK</small></div></div>
+      <div class="fc-promo-visual fc-new-visual"><div id="newBannerProducts" class="fc-new-products" aria-hidden="true"></div><div class="fc-new-burst">NEW<br><small>STOCK</small></div></div>
     </a>
     <a class="fc-promo-slide fc-promo-live" href="https://www.tiktok.com/@funkocouple8294" target="_blank" rel="noopener" aria-label="Visit Funko Couple on TikTok Live">
       <div class="fc-live-lines"></div>
@@ -57,7 +57,7 @@
         <p>Join us live on TikTok for Funko Pops, live selling, new stock and plenty of collector chat.</p>
         
       </div>
-      <div class="fc-promo-visual"><div class="fc-live-ring"></div><div class="fc-live-badge"><i></i><b>LIVE</b><span>TIKTOK</span></div><div class="fc-live-pop">POP<br><small>AUCTION</small></div></div>
+      <div class="fc-promo-visual fc-tiktok-visual"><div class="fc-tiktok-note">♪</div><div class="fc-tiktok-logo"><span class="tk-cyan">♪</span><span class="tk-pink">♪</span><b>t</b></div><div class="fc-tiktok-ring"></div><div class="fc-tiktok-word">TIKTOK<br><small>@FUNKOCOUPLE8294</small></div></div>
     </a>
     <a class="fc-promo-slide fc-promo-signed" href="shop.html?category=Signed" aria-label="Shop signed Funko Pops">
       <div class="fc-spark-field"></div>
@@ -67,19 +67,10 @@
         <p>Signed Pops and standout collector pieces.</p>
         
       </div>
-      <div class="fc-promo-visual"><div class="fc-signed-seal">SIGNED<small>COLLECTOR<br>PIECE</small></div><div class="fc-signed-rays"></div></div>
+      <div class="fc-promo-visual fc-signature-visual"><svg class="fc-signature" viewBox="0 0 520 190" aria-hidden="true"><path d="M18 132 C48 96 72 108 54 139 C38 166 22 112 82 101 C126 93 110 148 78 147 C103 119 139 88 166 104 C190 118 160 146 139 137 C160 113 205 86 221 109 C237 131 207 154 189 141 C214 113 253 92 274 108 C292 123 270 148 247 143 C273 119 309 95 327 111 C346 128 323 151 302 142 C327 119 362 96 382 110 C400 123 385 143 363 143 C390 119 423 105 447 119 C466 131 459 149 438 150 C468 145 486 132 501 118" fill="none"/></svg><div class="signature-underline"></div><div class="signature-caption">SIGNED · COLLECTOR PIECE</div></div>
     </a>
-    <article class="fc-promo-slide fc-promo-normal">
-      <div class="fc-shop-hero-copy">
-        <div class="fc-kicker">FUNKO COUPLE · UK</div>
-        <h1>Find your next <span>Pop.</span></h1>
-        <p>Shop Funko Pops across Marvel, Disney, Horror, TV & Movies, Anime, Gaming, Music and more.</p>
-        <div class="fc-hero-actions"><a class="btn" href="shop.html">SHOP ALL FUNKO POPS</a><a class="fc-text-link" href="#categoryZone">BROWSE CATEGORIES ↓</a></div>
-      </div>
-      <div class="fc-shop-hero-visual"><div class="fc-shelf-card"><span>NEW STOCK</span><strong>COLLECT<br>WHAT YOU<br>LOVE.</strong><small>FUNKO COUPLE / SHOP</small></div><div class="fc-floating-card fc-fc1">POP</div><div class="fc-floating-card fc-fc2">✦</div></div>
-    </article>
   </div>
-  <div class="fc-carousel-dots" aria-label="Banner slides"><button class="active" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button><button aria-label="Slide 4"></button></div>
+  <div class="fc-carousel-dots" aria-label="Banner slides"><button class="active" aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button></div>
 </section>
 
 <section class="fc-shop-strip"><div><b>✓</b> NEW STOCK</div><div><b>✓</b> COLLECTOR FOCUSED</div><div><b>✓</b> SECURE CHECKOUT</div><div><b>✓</b> UK BASED</div></section>
@@ -106,13 +97,14 @@
 (function(){
   const carousel=document.querySelector('.fc-hero-carousel'); if(!carousel)return;
   const slides=[...carousel.querySelectorAll('.fc-promo-slide')],dots=[...carousel.querySelectorAll('.fc-carousel-dots button')];
-  let index=0,timer,startX=0,startY=0;
+  let index=0,timer,startX=0,startY=0,swiping=false;
   function show(n){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('is-active',i===index));dots.forEach((d,i)=>d.classList.toggle('active',i===index))}
   function restart(){clearInterval(timer);timer=setInterval(()=>show(index+1),6500)}
   dots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();show(i);restart()}));
   carousel.addEventListener('mouseenter',()=>clearInterval(timer)); carousel.addEventListener('mouseleave',restart);
-  carousel.addEventListener('touchstart',e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;clearInterval(timer)},{passive:true});
-  carousel.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))show(index+(dx<0?1:-1));restart()},{passive:true});
+  carousel.addEventListener('touchstart',e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;swiping=false;clearInterval(timer)},{passive:true});
+  carousel.addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)){swiping=true;show(index+(dx<0?1:-1));setTimeout(()=>swiping=false,100)}restart()},{passive:true});
+  carousel.addEventListener('click',e=>{if(swiping){e.preventDefault();e.stopPropagation();swiping=false}},true);
   show(0);restart();
 })();
 function openFcMenu(e){if(e)e.preventDefault();document.getElementById('menuDrawer').classList.add('open');document.getElementById('menuOverlay').classList.add('open');document.body.classList.add('menu-open')}
