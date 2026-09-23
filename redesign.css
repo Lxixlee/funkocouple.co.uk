@@ -563,3 +563,22 @@ a{color:inherit}
   .fc-signature{width:100%!important;max-width:390px!important}
   .fc-pen-signature .sig-stroke{stroke-width:3.1}
 }
+
+
+/* POLISHED AUTOGRAPH FINISH */
+.fc-pen-signature .sig-stroke{
+  stroke:#d8b45d!important;
+  stroke-width:3.2!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+  filter:drop-shadow(0 0 1px rgba(255,235,180,.35));
+}
+.fc-pen-signature .s1{animation-delay:.05s!important}
+.fc-pen-signature .s2{animation-delay:.35s!important}
+.fc-pen-signature .s3{animation-delay:.70s!important}
+.fc-pen-signature .s4{animation-delay:1.05s!important}
+.fc-pen-signature .s5{animation-delay:1.40s!important}
+.fc-pen-signature .s6{animation-delay:1.75s!important}
+.fc-pen-signature .s7{animation-delay:2.10s!important}
+.fc-pen-signature .s8{animation-delay:2.45s!important}
+.fc-pen-signature .s9{animation-delay:2.85s!important}
