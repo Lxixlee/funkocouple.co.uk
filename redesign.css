@@ -802,3 +802,6 @@ a{color:inherit}
   0%,100%{transform:scale(1.025)}
   50%{transform:scale(1.075) translate3d(-1.4%,-.8%,0)}
 }
+
+/* Shop filter cleanup */
+#category,#availability{display:none!important}
