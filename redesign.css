@@ -709,3 +709,53 @@ a{color:inherit}
   .fc-category-name{font-size:17px}
   .fc-category-arrow{right:12px;bottom:11px;font-size:16px}
 }
+
+
+/* CATEGORY ARTWORK — UPLOADED CATEGORY IMAGES */
+.fc-category-card{isolation:isolate!important;background:#111!important}
+.fc-category-art{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  background-image:url("category-sprite.webp")!important;
+  background-repeat:no-repeat!important;
+  background-size:500% 200%!important;
+  transform:scale(1.01);
+  transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter 1.2s ease!important;
+  animation:fcCategoryFloat 7s ease-in-out infinite!important;
+}
+.fc-category-shade{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.04) 25%,rgba(0,0,0,.72) 100%)!important;
+  transition:opacity .5s ease!important;
+}
+.fc-category-num,.fc-category-name,.fc-category-arrow{z-index:2!important}
+.fc-cat-anime .fc-category-art{background-position:0 0!important;animation-delay:-1s!important}
+.fc-cat-dc .fc-category-art{background-position:25% 0!important;animation-delay:-2s!important}
+.fc-cat-music .fc-category-art{background-position:50% 0!important;animation-delay:-3s!important}
+.fc-cat-disney .fc-category-art{background-position:75% 0!important;animation-delay:-4s!important}
+.fc-cat-horror .fc-category-art{background-position:100% 0!important;animation-delay:-5s!important}
+.fc-cat-tv-movies .fc-category-art{background-position:0 100%!important;animation-delay:-6s!important}
+.fc-cat-gaming .fc-category-art{background-position:25% 100%!important;animation-delay:-2.5s!important}
+.fc-cat-signed .fc-category-art{background-position:50% 100%!important;animation-delay:-4.5s!important}
+.fc-cat-marvel .fc-category-art{background-position:75% 100%!important;animation-delay:-1.8s!important}
+.fc-cat-other .fc-category-art{background-position:100% 100%!important;animation-delay:-3.8s!important}
+.fc-category-card:hover .fc-category-art{
+  transform:scale(1.10)!important;
+  filter:saturate(1.12) contrast(1.04)!important;
+}
+.fc-category-card:hover .fc-category-shade{opacity:.56!important}
+@keyframes fcCategoryFloat{
+  0%,100%{transform:scale(1.01) translate3d(0,0,0)}
+  50%{transform:scale(1.045) translate3d(-1.5%, -1%,0)}
+}
+@media(max-width:600px){
+  .fc-category-art{animation:fcCategoryMobileFloat 8s ease-in-out infinite!important}
+  .fc-category-card:hover .fc-category-art{transform:scale(1.06)!important}
+}
+@keyframes fcCategoryMobileFloat{
+  0%,100%{transform:scale(1.01)}
+  50%{transform:scale(1.035) translate3d(-1%,-.5%,0)}
+}
