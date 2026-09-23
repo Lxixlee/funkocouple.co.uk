@@ -381,3 +381,13 @@ a{color:inherit}
  .fc-tiktok-logo-wrap{width:150px;height:170px;top:44%}.fc-tiktok-logo-svg{width:105px;height:125px}.fc-tiktok-logo-wrap:after{width:125px;height:125px}.fc-tiktok-ring{width:190px;height:190px}.fc-tiktok-word{font-size:11px;bottom:1%}.fc-tiktok-word small{font-size:5px}
  .fc-signature-visual{height:205px!important;min-height:205px!important;flex:0 0 205px!important}.signature-writing-label{top:3%;left:4%;font-size:6px}.fc-signature{width:100%;max-width:370px}.signature-text{font-size:86px;stroke-width:1.7;stroke-dasharray:1800;stroke-dashoffset:1800}.signature-underline{margin-top:-13px}.signature-caption{font-size:6px;margin-top:10px}
 }
+
+/* USE THE EXACT TIKTOK LOGO ARTWORK */
+.fc-tiktok-logo-wrap{position:absolute!important;left:50%!important;top:45%!important;width:260px!important;height:260px!important;transform:translate(-50%,-50%)!important;display:grid!important;place-items:center!important;z-index:4!important;animation:fcExactTikTokIn 3.8s cubic-bezier(.2,.8,.2,1) infinite!important}
+.fc-tiktok-logo-image{display:block!important;width:260px!important;height:260px!important;object-fit:contain!important;animation:fcExactTikTokPulse 3.8s ease-in-out infinite!important}
+.fc-tiktok-logo-wrap:after{display:none!important}
+@keyframes fcExactTikTokIn{0%,10%{opacity:0;transform:translate(-50%,-50%) scale(.55)}25%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}40%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes fcExactTikTokPulse{0%,35%{filter:drop-shadow(0 0 0 rgba(37,244,238,0))}48%{filter:drop-shadow(-10px 7px 0 rgba(37,244,238,.55)) drop-shadow(10px -6px 0 rgba(254,44,85,.45))}60%,100%{filter:none}}
+@media(max-width:700px){
+ .fc-tiktok-logo-wrap{width:170px!important;height:170px!important;top:44%!important}.fc-tiktok-logo-image{width:170px!important;height:170px!important}
+}
