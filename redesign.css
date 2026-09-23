@@ -477,3 +477,52 @@ a{color:inherit}
   82%,94%{transform:scaleX(1)}
   100%{transform:scaleX(0)}
 }
+
+
+/* DEFINITIVE BANNER FIXES */
+.fc-tiktok-logo-image{
+  mix-blend-mode:screen!important;
+  opacity:1!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  transform:none!important;
+}
+.fc-tiktok-logo-wrap{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.fc-signature{
+  width:min(650px,100%)!important;
+  height:auto!important;
+  overflow:visible!important;
+  filter:drop-shadow(0 0 8px rgba(224,187,104,.16))!important;
+}
+.signature-text{
+  font-family:"Dancing Script","Brush Script MT","Segoe Script","URW Chancery L",cursive!important;
+  font-size:118px!important;
+  font-weight:600!important;
+  font-style:normal!important;
+  letter-spacing:-.025em!important;
+  fill:#e0bb68!important;
+  stroke:#e0bb68!important;
+  stroke-width:1.2!important;
+  paint-order:stroke!important;
+  clip-path:url(#fcSignatureClip)!important;
+  animation:none!important;
+}
+.fc-signature-reveal{
+  animation:fcRealSignatureWrite 5.8s cubic-bezier(.45,.02,.22,1) infinite!important;
+}
+@keyframes fcRealSignatureWrite{
+  0%,8%{width:0}
+  70%,92%{width:700px}
+  100%{width:0}
+}
+.signature-underline{display:none!important}
+@media(max-width:700px){
+  .fc-signature{width:100%!important;max-width:380px!important}
+  .signature-text{font-size:86px!important}
+}
