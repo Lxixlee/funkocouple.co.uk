@@ -14,7 +14,7 @@ body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;paddin
 .artwork-preview img{width:100%;height:100%;object-fit:cover}
 .artwork-meta{font-size:10px;color:#777;margin-bottom:10px;line-height:1.5}
 .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.status{font-size:12px;color:#aaa}.security{border-color:#5d4b26}.btn2{display:inline-block;border:1px solid #555;background:#171717;color:#fff;padding:11px 15px;font-size:10px;font-weight:900;letter-spacing:.12em;cursor:pointer}.btn2.gold{background:var(--gold);border-color:var(--gold);color:#090909}.btn2:disabled{opacity:.45}.hidden{display:none}.saved{color:#9fd49f}.error{color:#ff9d9d}.home-link{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.12em}
-@media(max-width:800px){.slides{grid-template-columns:1fr}.category-artwork-grid{grid-template-columns:1fr}.admin-top{align-items:flex-start;flex-direction:column}}
+.product-admin-card{border:1px solid #292929;background:#111;padding:16px;margin:14px 0}.product-admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.product-admin-grid{display:grid;grid-template-columns:1fr 1.4fr 1.4fr;gap:14px}.product-admin-card textarea{width:100%;box-sizing:border-box;background:#0b0b0b;color:#fff;border:1px solid #383838;padding:12px;resize:vertical}.product-admin-card input[type=number],.product-admin-card input[type=text],.product-admin-card input:not([type]){width:100%;box-sizing:border-box}.product-categories{display:grid;grid-template-columns:1fr 1fr;gap:7px}.check{font-size:11px!important;letter-spacing:0!important;text-transform:none!important;color:#bbb!important;margin:0!important}.check input{width:auto}.product-admin-preview{height:180px}@media(max-width:800px){.product-admin-grid{grid-template-columns:1fr}.slides{grid-template-columns:1fr}.category-artwork-grid{grid-template-columns:1fr}.admin-top{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
@@ -34,6 +34,12 @@ body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;paddin
 
 <section id="editor" class="admin-card hidden">
 <div class="admin-card" style="margin:0 0 22px;background:#0d0d0c"><h2>Site Logo</h2><p class="admin-note">Change the logo used across the website. Upload a new logo and then click SAVE LOGO.</p><div class="artwork-preview" style="max-width:420px;height:140px" id="logoPreview"></div><div class="upload"><input id="logoUpload" type="file" accept="image/*,.svg"><button type="button" class="btn2" id="uploadLogo">UPLOAD LOGO</button><button type="button" class="btn2 gold" id="saveLogo">SAVE LOGO</button></div><div id="logoStatus" class="status" style="margin-top:10px"></div></div>
+<div class="admin-card" style="margin:0 0 22px;background:#0d0d0c">
+<h2>Shop Products</h2>
+<p class="admin-note">Add, edit and remove the products that appear in the shop. You can upload a product image, set the price and stock, choose one or more categories, and control the product details.</p>
+<div id="productsAdmin"></div>
+<div class="actions" style="margin-top:14px"><button type="button" class="btn2" id="addProduct">ADD PRODUCT</button><button type="button" class="btn2 gold" id="saveProducts">SAVE PRODUCTS</button><span id="productStatus" class="status"></span></div>
+</div>
 <div class="actions" style="justify-content:space-between"><div><h2 style="margin-bottom:4px">Category Images</h2><p class="admin-note">Upload the main image used on each homepage category card. Use a clear, high-resolution image — around 1200 × 800px works well. The image is stored separately, so replacing it will not make it blurry.</p></div></div>
 <div id="categoryArtwork" class="category-artwork-grid"></div>
 
@@ -49,6 +55,44 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function api(path,opts={}){const r=await fetch(API+path,{credentials:'same-origin',...opts,headers:{'Content-Type':'application/json',...(opts.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d}
 function loginStatus(t,ok=false){$('#loginStatus').textContent=t;$('#loginStatus').className='status '+(ok?'saved':'error')}
+let shopProducts=[];
+async function loadProductsAdmin(){
+  try{const d=await api('/products');shopProducts=Array.isArray(d.products)?d.products:[];renderProductsAdmin()}
+  catch(e){$('#productStatus').textContent=e.message;$('#productStatus').className='status error'}
+}
+function slugify(v){return String(v||'product').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'product'}
+function productCard(p,i){
+  const cats=['Marvel','DC','Music','Disney','Horror','TV & Movies','Anime','Gaming','Signed','Other'];
+  const selected=p.categories||[p.category].filter(Boolean);
+  return '<div class="product-admin-card" data-product-index="'+i+'"><div class="product-admin-top"><strong>PRODUCT '+(i+1)+'</strong><button type="button" class="btn2" data-remove-product="'+i+'">REMOVE</button></div><div class="product-admin-grid"><div><div class="artwork-preview product-admin-preview" id="product-preview-'+i+'">'+(p.image?'<img src="'+esc(p.image)+'" alt="">':'NO PRODUCT IMAGE')+'</div><div class="upload"><input type="file" accept="image/*" data-product-upload="'+i+'"><button type="button" class="btn2" data-product-upload-btn="'+i+'">UPLOAD IMAGE</button></div></div><div><div class="field"><label>Product name</label><input data-pfield="name" data-pi="'+i+'" value="'+esc(p.name||'')+'" placeholder="e.g. Spider-Man Funko Pop"></div><div class="field"><label>Product ID</label><input data-pfield="id" data-pi="'+i+'" value="'+esc(p.id||'')+'" placeholder="spider-man-001"></div><div class="field"><label>Price (£)</label><input type="number" min="0" step="0.01" data-pfield="price" data-pi="'+i+'" value="'+esc(p.price??'')+'"></div><div class="field"><label>Sale price (£) — optional</label><input type="number" min="0" step="0.01" data-pfield="salePrice" data-pi="'+i+'" value="'+esc(p.salePrice??'')+'"></div><div class="field"><label>Stock</label><input type="number" min="0" step="1" data-pfield="stock" data-pi="'+i+'" value="'+esc(p.stock??1)+'"></div></div><div><div class="field"><label>Categories</label><div class="product-categories">'+cats.map(c=>'<label class="check"><input type="checkbox" data-pcat="'+i+'" value="'+esc(c)+'" '+(selected.includes(c)?'checked':'')+'> '+esc(c)+'</label>').join('')+'</div></div><div class="field"><label>Condition</label><input data-pfield="condition" data-pi="'+i+'" value="'+esc(p.condition||'')+'" placeholder="New / Used / Mint"></div><div class="field"><label>Box condition</label><input data-pfield="boxCondition" data-pi="'+i+'" value="'+esc(p.boxCondition||'')+'" placeholder="Mint / Excellent / Good"></div><div class="field"><label>Description</label><textarea data-pfield="description" data-pi="'+i+'" rows="5" placeholder="Product description">'+esc(p.description||'')+'</textarea></div></div></div></div>'
+}
+function renderProductsAdmin(){
+  const root=$('#productsAdmin');
+  root.innerHTML=shopProducts.length?shopProducts.map(productCard).join(''):'<div class="admin-note" style="padding:14px 0">No products yet. Click ADD PRODUCT to create your first listing.</div>';
+}
+function syncProducts(){
+  document.querySelectorAll('[data-pfield]').forEach(e=>{
+    const p=shopProducts[+e.dataset.pi],k=e.dataset.pfield;
+    let v=e.value;
+    if(k==='price'||k==='salePrice') v=v===''?'':Number(v);
+    if(k==='stock') v=Math.max(0,parseInt(v||0,10));
+    p[k]=v;
+  });
+  shopProducts.forEach((p,i)=>{p.categories=[...document.querySelectorAll('[data-pcat="'+i+'"]:checked')].map(x=>x.value);p.category=p.categories[0]||'';delete p._pending});
+}
+async function saveProducts(){
+  syncProducts();
+  const s=$('#productStatus');s.textContent='Saving…';s.className='status';
+  try{await api('/products',{method:'PUT',body:JSON.stringify(shopProducts)});s.textContent='Products saved. The shop will update after GitHub Pages deploys.';s.className='status saved';}
+  catch(e){s.textContent=e.message;s.className='status error'}
+}
+$('#addProduct').onclick=()=>{const base='new-product-'+(shopProducts.length+1);shopProducts.unshift({id:base,name:'New Funko Pop',image:'',price:0,salePrice:'',stock:1,categories:['Other'],category:'Other',description:'',condition:'',boxCondition:''});renderProductsAdmin();document.querySelector('[data-pfield="name"]').focus()};
+$('#saveProducts').onclick=saveProducts;
+document.addEventListener('input',e=>{if(e.target.matches('[data-pfield]')){const p=shopProducts[+e.target.dataset.pi];if(p&&e.target.dataset.pfield==='name'&&!p.id.startsWith('new-product-'))return}});
+document.addEventListener('click',e=>{
+  const r=e.target.closest('[data-remove-product]');
+  if(r){const i=+r.dataset.removeProduct;if(confirm('Remove this product from the shop?')){shopProducts.splice(i,1);renderProductsAdmin()}}
+});
 async function loadConfig(){const d=await api('/config');cfg=d.config;render();$('#loginCard').classList.add('hidden');$('#editor').classList.remove('hidden');$('#logout').classList.remove('hidden')}
 function render(){
 const lp=$('#logoPreview');if(lp)lp.innerHTML=cfg.logo?'<img src="'+esc(cfg.logo)+'" alt="Current site logo">':'CURRENT LOGO: logo.svg';
@@ -85,7 +129,7 @@ const [ci,si]=e.target.dataset.upload.split('-').map(Number),file=e.target.files
 try{await upload(ci,si,file)}catch(err){alert(err.message)}
 e.target.value='';
 });
-(async()=>{try{await loadConfig()}catch(e){if(e.message!=='Unauthorised.')console.log(e.message)}})();
+(async()=>{try{await loadConfig();await loadProductsAdmin()}catch(e){if(e.message!=='Unauthorised.')console.log(e.message)}})();
 </script>
 </body>
 </html>
