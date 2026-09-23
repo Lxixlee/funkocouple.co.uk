@@ -6,8 +6,15 @@
 <title>Funko Couple | Admin</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;padding:30px 18px 80px}.admin-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.admin-top h1{font-size:32px;font-weight:500;margin:0}.admin-card{background:#111;border:1px solid #292929;padding:22px;margin-bottom:18px}.admin-card h2{font-size:19px;font-weight:500;margin:0 0 18px}.admin-note{color:#8e8a81;font-size:12px;line-height:1.7}.admin input{width:100%;box-sizing:border-box;background:#0b0b0b;color:#fff;border:1px solid #383838;padding:12px;outline:0}.admin input:focus{border-color:var(--gold)}.admin label{display:block;color:#aaa;font-size:10px;font-weight:800;letter-spacing:.12em;margin:0 0 7px;text-transform:uppercase}.category{border:1px solid #2b2925;margin:15px 0;background:#0d0d0c}.category summary{cursor:pointer;padding:17px;font-weight:800;letter-spacing:.08em}.category-body{padding:18px;border-top:1px solid #2b2925}.cat-name{font-size:20px;margin-bottom:18px}.slides{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.slide{border:1px solid #292929;padding:15px;background:#111}.slide h3{font-size:12px;color:var(--gold);margin:0 0 13px}.field{margin-bottom:12px}.upload{display:flex;gap:8px;align-items:center}.upload input[type=file]{padding:8px;font-size:11px}.preview{height:100px;background:#161616;border:1px solid #292929;margin:0 0 12px;display:grid;place-items:center;overflow:hidden;color:#666;font-size:10px}.preview img{width:100%;height:100%;object-fit:cover}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.status{font-size:12px;color:#aaa}.security{border-color:#5d4b26}.btn2{display:inline-block;border:1px solid #555;background:#171717;color:#fff;padding:11px 15px;font-size:10px;font-weight:900;letter-spacing:.12em;cursor:pointer}.btn2.gold{background:var(--gold);border-color:var(--gold);color:#090909}.btn2:disabled{opacity:.45}.hidden{display:none}.saved{color:#9fd49f}.error{color:#ff9d9d}.home-link{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.12em}
-@media(max-width:800px){.slides{grid-template-columns:1fr}.admin-top{align-items:flex-start;flex-direction:column}}
+body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;padding:30px 18px 80px}.admin-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.admin-top h1{font-size:32px;font-weight:500;margin:0}.admin-card{background:#111;border:1px solid #292929;padding:22px;margin-bottom:18px}.admin-card h2{font-size:19px;font-weight:500;margin:0 0 18px}.admin-note{color:#8e8a81;font-size:12px;line-height:1.7}.admin input{width:100%;box-sizing:border-box;background:#0b0b0b;color:#fff;border:1px solid #383838;padding:12px;outline:0}.admin input:focus{border-color:var(--gold)}.admin label{display:block;color:#aaa;font-size:10px;font-weight:800;letter-spacing:.12em;margin:0 0 7px;text-transform:uppercase}.category{border:1px solid #2b2925;margin:15px 0;background:#0d0d0c}.category summary{cursor:pointer;padding:17px;font-weight:800;letter-spacing:.08em}.category-body{padding:18px;border-top:1px solid #2b2925}.cat-name{font-size:20px;margin-bottom:18px}.slides{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.slide{border:1px solid #292929;padding:15px;background:#111}.slide h3{font-size:12px;color:var(--gold);margin:0 0 13px}.field{margin-bottom:12px}.upload{display:flex;gap:8px;align-items:center}.upload input[type=file]{padding:8px;font-size:11px}.preview{height:100px;background:#161616;border:1px solid #292929;margin:0 0 12px;display:grid;place-items:center;overflow:hidden;color:#666;font-size:10px}.preview img{width:100%;height:100%;object-fit:cover}
+.category-artwork-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.artwork-card{border:1px solid #292929;background:#0d0d0c;padding:15px}
+.artwork-card h3{font-size:12px;color:var(--gold);margin:0 0 12px;letter-spacing:.08em}
+.artwork-preview{height:190px;background:#161616;border:1px solid #292929;margin-bottom:12px;display:grid;place-items:center;overflow:hidden;color:#666;font-size:10px}
+.artwork-preview img{width:100%;height:100%;object-fit:cover}
+.artwork-meta{font-size:10px;color:#777;margin-bottom:10px;line-height:1.5}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.status{font-size:12px;color:#aaa}.security{border-color:#5d4b26}.btn2{display:inline-block;border:1px solid #555;background:#171717;color:#fff;padding:11px 15px;font-size:10px;font-weight:900;letter-spacing:.12em;cursor:pointer}.btn2.gold{background:var(--gold);border-color:var(--gold);color:#090909}.btn2:disabled{opacity:.45}.hidden{display:none}.saved{color:#9fd49f}.error{color:#ff9d9d}.home-link{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.12em}
+@media(max-width:800px){.slides{grid-template-columns:1fr}.category-artwork-grid{grid-template-columns:1fr}.admin-top{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
@@ -26,7 +33,10 @@ body{background:#080808;color:#f5f1e7}.admin{max-width:1200px;margin:auto;paddin
 </section>
 
 <section id="editor" class="admin-card hidden">
-<div class="actions" style="justify-content:space-between"><div><h2 style="margin-bottom:4px">Category Banners</h2><p class="admin-note">Change the image, heading, supporting text and button text for every category slide. Uploading an image adds it to the website automatically.</p></div><button id="save" class="btn2 gold">SAVE ALL CHANGES</button></div>
+<div class="actions" style="justify-content:space-between"><div><h2 style="margin-bottom:4px">Category Images</h2><p class="admin-note">Upload the main image used on each homepage category card. Use a clear, high-resolution image — around 1200 × 800px works well. The image is stored separately, so replacing it will not make it blurry.</p></div></div>
+<div id="categoryArtwork" class="category-artwork-grid"></div>
+
+<div class="actions" style="justify-content:space-between;margin-top:26px"><div><h2 style="margin-bottom:4px">Category Banners</h2><p class="admin-note">Change the image, heading, supporting text and button text for every category slide.</p></div><button id="save" class="btn2 gold">SAVE ALL CHANGES</button></div>
 <div id="categories"></div>
 <div class="actions"><button id="save2" class="btn2 gold">SAVE ALL CHANGES</button><span id="saveStatus" class="status"></span></div>
 </section>
@@ -39,15 +49,37 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 async function api(path,opts={}){const r=await fetch(API+path,{credentials:'same-origin',...opts,headers:{'Content-Type':'application/json',...(opts.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d}
 function loginStatus(t,ok=false){$('#loginStatus').textContent=t;$('#loginStatus').className='status '+(ok?'saved':'error')}
 async function loadConfig(){const d=await api('/config');cfg=d.config;render();$('#loginCard').classList.add('hidden');$('#editor').classList.remove('hidden');$('#logout').classList.remove('hidden')}
-function render(){const root=$('#categories');root.innerHTML=(cfg.categories||[]).map((c,ci)=>'<details class="category" open><summary>'+esc(c.name)+'</summary><div class="category-body"><div class="cat-name"><label>Category name</label><input data-cat-name="'+ci+'" value="'+esc(c.name)+'"></div><div class="slides">'+(c.slides||[]).map((s,si)=>'<div class="slide"><h3>SLIDE '+(si+1)+'</h3><div class="preview" id="preview-'+ci+'-'+si+'">'+(s.image?'<img src="'+esc(s.image)+'" alt="">':'NO IMAGE — GRADIENT BANNER')+'</div><div class="field"><label>Banner image URL</label><input data-field="image" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.image||'')+'" placeholder="https://.../image.jpg"></div><div class="upload"><input type="file" accept="image/*" data-upload="'+ci+'-'+si+'"><button type="button" class="btn2" data-upload-btn="'+ci+'-'+si+'">UPLOAD</button></div><div class="field"><label>Heading</label><input data-field="title" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.title||'')+'"></div><div class="field"><label>Supporting text</label><input data-field="subtitle" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.subtitle||'')+'"></div><div class="field"><label>Button text</label><input data-field="cta" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.cta||'')+'"></div></div>').join('')+'</div></div></details>').join('')}
+function render(){
+const artwork=$('#categoryArtwork');
+if(artwork) artwork.innerHTML=(cfg.categories||[]).map((c,ci)=>'<div class="artwork-card"><h3>'+esc(c.name)+'</h3><div class="artwork-preview">'+(c.image?'<img src="'+esc(c.image)+'" alt="'+esc(c.name)+' category image">':'NO CATEGORY IMAGE — UPLOAD ONE')+'</div><div class="artwork-meta">'+(c.image?'Current homepage image is set.':'No homepage image has been uploaded yet.')+'</div><div class="upload"><input type="file" accept="image/*" data-category-upload="'+ci+'"><button type="button" class="btn2" data-category-upload-btn="'+ci+'">UPLOAD IMAGE</button></div></div>').join('');
+const root=$('#categories');
+root.innerHTML=(cfg.categories||[]).map((c,ci)=>'<details class="category" open><summary>'+esc(c.name)+'</summary><div class="category-body"><div class="cat-name"><label>Category name</label><input data-cat-name="'+ci+'" value="'+esc(c.name)+'"></div><div class="slides">'+(c.slides||[]).map((s,si)=>'<div class="slide"><h3>SLIDE '+(si+1)+'</h3><div class="preview" id="preview-'+ci+'-'+si+'">'+(s.image?'<img src="'+esc(s.image)+'" alt="">':'NO IMAGE — GRADIENT BANNER')+'</div><div class="field"><label>Banner image URL</label><input data-field="image" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.image||'')+'" placeholder="https://.../image.jpg"></div><div class="upload"><input type="file" accept="image/*" data-upload="'+ci+'-'+si+'"><button type="button" class="btn2" data-upload-btn="'+ci+'-'+si+'">UPLOAD</button></div><div class="field"><label>Heading</label><input data-field="title" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.title||'')+'"></div><div class="field"><label>Supporting text</label><input data-field="subtitle" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.subtitle||'')+'"></div><div class="field"><label>Button text</label><input data-field="cta" data-ci="'+ci+'" data-si="'+si+'" value="'+esc(s.cta||'')+'"></div></div>').join('')+'</div></div></details>').join('')}
 function sync(){document.querySelectorAll('[data-cat-name]').forEach(e=>cfg.categories[+e.dataset.catName].name=e.value.trim());document.querySelectorAll('[data-field]').forEach(e=>cfg.categories[+e.dataset.ci].slides[+e.dataset.si][e.dataset.field]=e.value)}
 async function save(){sync();const b=$('#saveStatus');b.textContent='Saving…';try{await api('/config',{method:'PUT',body:JSON.stringify(cfg)});b.textContent='Saved. The live site will update after GitHub Pages deploys.';b.className='status saved'}catch(e){b.textContent=e.message;b.className='status error'}}
-async function upload(ci,si,file){const bytes=new Uint8Array(await file.arrayBuffer());let bin='';for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode(...bytes.subarray(i,i+0x8000));const d=await api('/upload',{method:'POST',body:JSON.stringify({filename:file.name,content:btoa(bin)})});cfg.categories[ci].slides[si].image=d.image;render()}
+async function uploadFile(file){
+const bytes=new Uint8Array(await file.arrayBuffer());let bin='';
+for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode(...bytes.subarray(i,i+0x8000));
+return api('/upload',{method:'POST',body:JSON.stringify({filename:file.name,content:btoa(bin)})})
+}
+async function upload(ci,si,file){const d=await uploadFile(file);cfg.categories[ci].slides[si].image=d.image;render()}
+async function uploadCategoryImage(ci,file){const d=await uploadFile(file);cfg.categories[ci].image=d.image;render()}
+
 $('#login').onclick=async()=>{const password=$('#password').value;if(!password){loginStatus('Enter your password.');return}try{await api('/login',{method:'POST',body:JSON.stringify({password})});$('#password').value='';await loadConfig()}catch(e){loginStatus(e.message)}};
 $('#password').addEventListener('keydown',e=>{if(e.key==='Enter')$('#login').click()});
 $('#logout').onclick=async()=>{await api('/logout',{method:'POST'});location.reload()};
 $('#save').onclick=save;$('#save2').onclick=save;
-document.addEventListener('change',async e=>{if(!e.target.matches('[data-upload]'))return;const [ci,si]=e.target.dataset.upload.split('-').map(Number),file=e.target.files[0];if(!file)return;try{await upload(ci,si,file)}catch(err){alert(err.message)}});
+document.addEventListener('change',async e=>{
+if(e.target.matches('[data-category-upload]')){
+  const ci=Number(e.target.dataset.categoryUpload),file=e.target.files[0];if(!file)return;
+  try{await uploadCategoryImage(ci,file)}catch(err){alert(err.message)}
+  e.target.value='';
+  return;
+}
+if(!e.target.matches('[data-upload]'))return;
+const [ci,si]=e.target.dataset.upload.split('-').map(Number),file=e.target.files[0];if(!file)return;
+try{await upload(ci,si,file)}catch(err){alert(err.message)}
+e.target.value='';
+});
 (async()=>{try{await loadConfig()}catch(e){if(e.message!=='Unauthorised.')console.log(e.message)}})();
 </script>
 </body>
