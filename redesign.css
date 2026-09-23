@@ -526,3 +526,40 @@ a{color:inherit}
   .fc-signature{width:100%!important;max-width:380px!important}
   .signature-text{font-size:86px!important}
 }
+
+
+/* AUTOGRAPH-STYLE PEN WRITING */
+.fc-signature{
+  width:min(680px,100%)!important;
+  height:auto!important;
+  overflow:visible!important;
+  filter:drop-shadow(0 0 7px rgba(224,187,104,.16))!important;
+}
+.fc-pen-signature{
+  overflow:visible;
+}
+.fc-pen-signature .sig-stroke{
+  stroke-dasharray:100;
+  stroke-dashoffset:100;
+  opacity:1;
+  animation:fcPenStroke 5.8s linear infinite;
+}
+.fc-pen-signature .s1{animation-delay:.10s}
+.fc-pen-signature .s2{animation-delay:.42s}
+.fc-pen-signature .s3{animation-delay:.78s}
+.fc-pen-signature .s4{animation-delay:1.12s}
+.fc-pen-signature .s5{animation-delay:1.48s}
+.fc-pen-signature .s6{animation-delay:1.84s}
+.fc-pen-signature .s7{animation-delay:2.18s}
+.fc-pen-signature .s8{animation-delay:2.52s}
+.fc-pen-signature .s9{animation-delay:3.05s}
+@keyframes fcPenStroke{
+  0%,4%{stroke-dashoffset:100}
+  11%,100%{stroke-dashoffset:0}
+}
+.signature-underline{display:none!important}
+.signature-caption{margin-top:10px!important}
+@media(max-width:700px){
+  .fc-signature{width:100%!important;max-width:390px!important}
+  .fc-pen-signature .sig-stroke{stroke-width:3.1}
+}
