@@ -70,3 +70,24 @@
 @media(prefers-reduced-motion:reduce){
   .fc-category-art.has-image:before,.fc-category-art.has-image:after{animation:none!important;opacity:.22!important}
 }
+
+
+/* FINAL CATEGORY COLOUR ANIMATION — keep artwork fixed, animate the colours in the uploaded image */
+.fc-category-art.has-image img{
+  animation:fcUploadedColourShift 5.2s ease-in-out infinite!important;
+  transform:none!important;
+  will-change:filter!important;
+}
+@keyframes fcUploadedColourShift{
+  0%,100%{filter:saturate(1) contrast(1) brightness(1) hue-rotate(0deg)}
+  20%{filter:saturate(1.22) contrast(1.04) brightness(1.03) hue-rotate(-2deg)}
+  45%{filter:saturate(1.48) contrast(1.08) brightness(1.07) hue-rotate(4deg)}
+  68%{filter:saturate(1.30) contrast(1.06) brightness(1.04) hue-rotate(-3deg)}
+  85%{filter:saturate(1.58) contrast(1.10) brightness(1.08) hue-rotate(3deg)}
+}
+@media(max-width:600px){
+  .fc-category-art.has-image img{animation-duration:5.8s!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-category-art.has-image img{animation:none!important;filter:saturate(1.18) contrast(1.03)!important}
+}
