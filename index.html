@@ -99,6 +99,23 @@
 </main>
 <footer class="footer"><div class="footer-links"><a href="shop.html">SHOP</a><a href="about.html">ABOUT US</a><a href="contact.html">CONTACT</a><a href="bag.html">BAG</a></div>© Funko Couple</footer>
 <script src="app.js?v=20260924-19"></script><script>
+/* CATEGORY GRID MOBILE SAFETY FALLBACK */
+document.addEventListener('DOMContentLoaded',async function(){
+  const root=document.getElementById('categoryZone');
+  if(!root)return;
+  try{
+    const cfg=await fetch('site-config.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json());
+    if(!cfg||!Array.isArray(cfg.categories)||!cfg.categories.length)return;
+    if(root.querySelector('.fc-category-grid'))return;
+    root.innerHTML='<div class="fc-category-grid-head"><div><div class="eyebrow">SHOP BY CATEGORY</div><h2>Find your collection</h2></div><a href="shop.html" class="fc-category-view-all">SHOP ALL →</a></div><div class="fc-category-grid">'+cfg.categories.map(function(c,i){
+      const name=String(c.name||'Category'),key=name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),img=c.image?String(c.image):'';
+      return '<a class="fc-category-card fc-cat-'+key+'" href="shop.html?category='+encodeURIComponent(name)+'"><span class="fc-category-art'+(img?' has-image':'')+'">'+(img?'<img src="'+img.replace(/"/g,'&quot;')+'" alt="">':'')+'</span><span class="fc-category-shade"></span><span class="fc-category-num">'+String(i+1).padStart(2,'0')+'</span><span class="fc-category-name">'+name.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span><span class="fc-category-arrow">→</span></a>';
+    }).join('')+'</div>';
+  }catch(e){
+    console.error('Category grid fallback failed',e);
+  }
+});
+</script><script>
 (function(){
   const carousel=document.querySelector('.fc-hero-carousel'); if(!carousel)return;
   const slides=[...carousel.querySelectorAll('.fc-promo-slide')],dots=[...carousel.querySelectorAll('.fc-carousel-dots button')];
