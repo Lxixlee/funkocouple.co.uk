@@ -11,7 +11,7 @@
     ],
     "category": "Gaming",
     "description": "",
-    "condition": "New",
-    "boxCondition": "Good"
+    "status": "New",
+    "condition": "Good"
   }
 ]
