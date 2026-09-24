@@ -1,35 +1,5 @@
 [
   {
-    "id": "new-product-3",
-    "name": "New Funko Pop",
-    "image": "",
-    "price": 0,
-    "salePrice": "",
-    "stock": 1,
-    "categories": [
-      "Other"
-    ],
-    "category": "Other",
-    "description": "",
-    "status": "New",
-    "condition": "Mint"
-  },
-  {
-    "id": "new-product-2",
-    "name": "New Funko Pop",
-    "image": "",
-    "price": 0,
-    "salePrice": "",
-    "stock": 1,
-    "categories": [
-      "Other"
-    ],
-    "category": "Other",
-    "description": "",
-    "status": "New",
-    "condition": "Mint"
-  },
-  {
     "id": "new-product-1",
     "name": "New Funko Pop",
     "image": "https://raw.githubusercontent.com/Lxixlee/funkocouple.co.uk/main/assets/banners/1790238805115-img_1169.jpeg",
