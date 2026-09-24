@@ -6,6 +6,31 @@ async function loadSiteConfig(){try{const r=await fetch('site-config.json?v='+Da
     const name=String(c.name),key=name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),num=String(i+1).padStart(2,'0'),img=c.image?String(c.image):'';
     return '<a class="fc-category-card fc-cat-'+key+'" href="shop.html?category='+encodeURIComponent(name)+'"><span class="fc-category-art'+(img?' has-image':'')+'" aria-hidden="true">'+(img?'<img src="'+esc(img)+'" alt="">':'')+'</span><span class="fc-category-shade" aria-hidden="true"></span><span class="fc-category-num">'+num+'</span><span class="fc-category-name">'+esc(name)+'</span><span class="fc-category-arrow">→</span></a>'
   }).join('')+'</div>';
+  requestCategoryLedColours();
+}
+function requestCategoryLedColours(){
+  document.querySelectorAll('.fc-category-art.has-image img').forEach(img=>{
+    const apply=()=>{
+      try{
+        const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});
+        canvas.width=24;canvas.height=24;ctx.drawImage(img,0,0,24,24);
+        const data=ctx.getImageData(0,0,24,24).data;
+        let r=0,g=0,b=0,n=0;
+        for(let i=0;i<data.length;i+=4){
+          const rr=data[i],gg=data[i+1],bb=data[i+2],a=data[i+3];
+          if(a<180)continue;
+          const max=Math.max(rr,gg,bb),min=Math.min(rr,gg,bb);
+          if(max<55 || max-min<28)continue;
+          const boost=max-min;
+          r+=rr*boost;g+=gg*boost;b+=bb*boost;n+=boost;
+        }
+        if(!n)return;
+        r=Math.round(r/n);g=Math.round(g/n);b=Math.round(b/n);
+        img.parentElement.style.setProperty('--led-color',`rgb(${r}, ${g}, ${b})`);
+      }catch(e){}
+    };
+    if(img.complete)apply();else img.addEventListener('load',apply,{once:true});
+  });
 } async function initHome(){const ps=await products(),grid=$('#featuredGrid');const a=ps.filter(p=>+p.stock>0).slice(0,4);
 const cfg=await loadSiteConfig();renderCategoryBanners(cfg);const newProducts=$('#newBannerProducts');if(newProducts){const picks=ps.filter(p=>+p.stock>0).slice(0,3);newProducts.innerHTML=picks.map((p,i)=>'<div class="fc-new-item fc-new-item-'+i+'">'+(p.image?'<img src="'+esc(p.image)+'" alt="">':'<span>POP!</span>')+'</div>').join('')}const banners=$('.category-banner');
 banners.forEach(banner=>{
