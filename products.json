@@ -1,17 +1,32 @@
 [
   {
-    "id": "new-product-1",
-    "name": "test gaming product",
-    "image": "https://raw.githubusercontent.com/Lxixlee/funkocouple.co.uk/main/assets/banners/1790208084968-deer.png",
-    "price": 222,
+    "id": "new-product-2",
+    "name": "New Funko Pop",
+    "image": "",
+    "price": 0,
     "salePrice": "",
     "stock": 1,
     "categories": [
-      "Gaming"
+      "Other"
     ],
-    "category": "Gaming",
+    "category": "Other",
     "description": "",
     "status": "New",
-    "condition": "Good"
+    "condition": "Mint"
+  },
+  {
+    "id": "new-product-1",
+    "name": "New Funko Pop",
+    "image": "https://raw.githubusercontent.com/Lxixlee/funkocouple.co.uk/main/assets/banners/1790238805115-img_1169.jpeg",
+    "price": 0,
+    "salePrice": "",
+    "stock": 1,
+    "categories": [
+      "Other"
+    ],
+    "category": "Other",
+    "description": "",
+    "status": "New",
+    "condition": "Mint"
   }
 ]
