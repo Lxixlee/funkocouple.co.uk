@@ -860,3 +860,26 @@ a{color:inherit}
   .bag-layout .qty{flex-wrap:wrap}
   .bag-layout .qty button[data-remove]{min-width:118px!important}
 }
+
+
+/* HOMEPAGE — ONLY CONTACT US BELOW CATEGORY GRID */
+.fc-home-contact{
+  max-width:1180px;
+  margin:0 auto;
+  padding:42px 22px 70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  border-top:1px solid var(--fc-line);
+}
+.fc-home-contact h2{
+  margin:5px 0 8px;
+  font-size:clamp(28px,3vw,42px);
+  letter-spacing:-.04em;
+}
+.fc-home-contact p{margin:0;color:var(--fc-muted);font-size:13px}
+@media(max-width:600px){
+  .fc-home-contact{padding:32px 10px 50px;display:block}
+  .fc-home-contact .btn{margin-top:20px;display:inline-flex}
+}
