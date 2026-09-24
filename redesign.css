@@ -833,3 +833,30 @@ a{color:inherit}
 .product-note{text-align:center;color:#77736b;font-size:10px;margin-top:13px}
 @media(max-width:900px){.product-detail{padding:22px 15px 65px}.product-detail-grid{grid-template-columns:1fr;gap:35px}.product-main-image{height:75vw;min-height:340px;max-height:600px}.product-info{padding-top:0}.product-info h1{font-size:clamp(34px,9vw,52px)}}
 @media(max-width:600px){.product-crumb{margin-bottom:18px}.product-main-image{height:92vw;min-height:300px}.product-wish{right:10px;top:10px}.product-category{margin-bottom:13px}.product-info h1{font-size:35px}.product-detail-price{font-size:27px}.product-spec{grid-template-columns:120px 1fr;padding:14px 0}.product-description{font-size:12px}.product-add{height:53px}}
+
+/* BAG PAGE — MATCH THE STOREFRONT HEADER + FIX REMOVE BUTTON */
+.bag-layout .qty button[data-remove]{
+  width:auto!important;
+  min-width:118px!important;
+  height:30px!important;
+  padding:0 13px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+  white-space:nowrap!important;
+  font-size:9px!important;
+  font-weight:900!important;
+  letter-spacing:.1em!important;
+  background:#fff!important;
+  color:#111!important;
+  border:1px solid #111!important;
+}
+.bag-layout .qty button[data-remove]:hover{
+  background:#111!important;
+  color:#fff!important;
+}
+@media(max-width:600px){
+  .bag-layout .qty{flex-wrap:wrap}
+  .bag-layout .qty button[data-remove]{min-width:118px!important}
+}
