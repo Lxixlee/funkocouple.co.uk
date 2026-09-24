@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "new-product-1",
+    "name": "test gaming product",
+    "image": "https://raw.githubusercontent.com/Lxixlee/funkocouple.co.uk/main/assets/banners/1790208084968-deer.png",
+    "price": 222,
+    "salePrice": "",
+    "stock": 1,
+    "categories": [
+      "Gaming"
+    ],
+    "category": "Gaming",
+    "description": "",
+    "condition": "New",
+    "boxCondition": "Good"
+  }
+]
