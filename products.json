@@ -1,16 +1,16 @@
 [
   {
     "id": "new-product-1",
-    "name": "New Funko Pop",
+    "name": "New Funko Pop test",
     "image": "https://raw.githubusercontent.com/Lxixlee/funkocouple.co.uk/main/assets/banners/1790238805115-img_1169.jpeg",
-    "price": 0,
+    "price": 356,
     "salePrice": "",
     "stock": 1,
     "categories": [
-      "Other"
+      "Gaming"
     ],
-    "category": "Other",
-    "description": "",
+    "category": "Gaming",
+    "description": "Bfdc",
     "status": "New",
     "condition": "Mint"
   }
