@@ -91,3 +91,61 @@
 @media(prefers-reduced-motion:reduce){
   .fc-category-art.has-image img{animation:none!important;filter:saturate(1.18) contrast(1.03)!important}
 }
+
+
+/* LED COLOUR TRAIL — travels around the edge of the actual uploaded artwork */
+.fc-category-art.has-image{
+  --led-color:rgb(255,80,180);
+}
+.fc-category-art.has-image:before{
+  content:""!important;
+  position:absolute!important;
+  inset:5px!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  background:none!important;
+  mix-blend-mode:screen!important;
+  border:0!important;
+  opacity:1!important;
+  transform:none!important;
+  animation:none!important;
+}
+.fc-category-art.has-image:after{
+  content:""!important;
+  position:absolute!important;
+  inset:5px!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(90deg,var(--led-color),var(--led-color)) top left/58px 3px no-repeat,
+    linear-gradient(180deg,var(--led-color),var(--led-color)) top right/3px 58px no-repeat,
+    linear-gradient(270deg,var(--led-color),var(--led-color)) bottom right/58px 3px no-repeat,
+    linear-gradient(0deg,var(--led-color),var(--led-color)) bottom left/3px 58px no-repeat!important;
+  filter:drop-shadow(0 0 4px var(--led-color)) drop-shadow(0 0 9px color-mix(in srgb,var(--led-color) 70%,transparent))!important;
+  opacity:.98!important;
+  mix-blend-mode:screen!important;
+  animation:fcLedZip 3.2s linear infinite!important;
+}
+@keyframes fcLedZip{
+  0%{
+    background-position:-58px 0,100% -58px,calc(100% + 58px) 100%,0 calc(100% + 58px);
+  }
+  25%{
+    background-position:100% 0,100% -58px,calc(100% + 58px) 100%,0 100%;
+  }
+  50%{
+    background-position:100% 0,100% 100%,calc(100% + 58px) 100%,0 calc(100% + 58px);
+  }
+  75%{
+    background-position:100% 0,100% 100%,58px 100%,0 100%;
+  }
+  100%{
+    background-position:-58px 0,100% -58px,calc(100% + 58px) 100%,0 calc(100% + 58px);
+  }
+}
+@media(max-width:600px){
+  .fc-category-art.has-image:after{animation-duration:2.8s}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-category-art.has-image:after{animation:none!important}
+}
